@@ -19,7 +19,7 @@ Crazy3D's current host uses a desktop 16:9 iframe with a 300 px minimum height. 
 
 The short layout keeps the whole puzzle, stats, Undo, Restart, Share and Hint actions visible. Gardens and Help open modal panels, and the Gardens dialog includes Daily moonlight. On larger screens, a side journal explains the current puzzle. On small screens this text remains accessible through Help and Gardens rather than displacing the board. Dialog content can scroll internally.
 
-The parent QA session verified 960×540, 390×460, 390×300, and 844×340 without page overflow or clipped buttons and completed the first puzzle in the flat board mode. Software 3D rendering was added after that first pass and requires the separate visual acceptance pass described below.
+The parent QA session verified 960×540, 390×460, 390×300, and 844×340 without page overflow or inaccessible controls and completed the first puzzle in the flat board mode. A subsequent visual pass verified the Canvas 3D backend, corrected platform occlusion, exercised rotation and restart, completed the first 3D puzzle, and completed the 4×4 ninth garden in four clicks inside a 390×300 iframe. Its 374×196 canvas and projected controls remained inside the frame after resizing. These are browser viewport tests, not physical phone or GPU performance measurements.
 
 ## Rendering and diagnostics
 
