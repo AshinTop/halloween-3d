@@ -6,11 +6,11 @@ Ghost Lanterns 3D is a Halloween logic puzzle built around the classic Lights Ou
 
 Part of **Midnight Candy Club**, created for the Halloween collection at [crazy3d.org](https://crazy3d.org).
 
-**[GitHub Pages deployment target](https://ashintop.github.io/halloween-3d/)** · **[Watch the visual introduction](docs/media/intro.mp4)** · **[Embedding guide](EMBEDDING.md)**
+**[Play online](https://halloween-3d.crazy3d.org/)** · **[Watch the visual introduction](docs/media/intro.mp4)** · **[Embedding guide](EMBEDDING.md)**
 
-**Deployment status:** GitHub Pages is not live yet. The `ashintop.github.io` links in this document are intended deployment addresses. Use the local-run instructions until the hosted game has been published and verified.
+**Live deployment:** Play on Cloudflare using the link above. The site is deployed from this GitHub repository. Hosting scripts and request logging may be added by Cloudflare independently of the game code.
 
-[Video player and transcript (deployment target)](https://ashintop.github.io/halloween-3d/intro.html) · [Captioned MP4 file](docs/media/intro.mp4). The 24-second silent introduction uses actual game screenshots; it is not a live gameplay recording.
+[Video player and transcript](https://halloween-3d.crazy3d.org/intro.html) · [Captioned MP4 file](docs/media/intro.mp4). The 24-second silent introduction uses actual game screenshots; it is not a live gameplay recording.
 
 ![Ghost Lanterns 3D Halloween logic puzzle with a low-poly pumpkin garden, progress counters, and level controls](docs/images/gameplay.jpg)
 
@@ -99,7 +99,7 @@ Tap a lantern to flip it and its neighbors, then watch the lit count. Undo and H
 The player adapts to its actual iframe size, including **960 × 540**, **390 × 460**, **390 × 300**, and **844 × 340** CSS pixels. The main site's navigation or fullscreen toolbar should sit outside the iframe. `?embed=1` can request the compact presentation explicitly; iframe detection also enables it automatically. See [EMBEDDING.md](EMBEDDING.md).
 
 ```html
-<iframe src="https://ashintop.github.io/halloween-3d/?embed=1"
+<iframe src="https://halloween-3d.crazy3d.org/?embed=1"
   title="Ghost Lanterns 3D" width="960" height="540"
   allow="fullscreen" allowfullscreen
   style="display:block;width:100%;border:0"></iframe>
@@ -127,9 +127,9 @@ Created for Ashin's Midnight Candy Club with AI-assisted puzzle design, programm
 
 ## More from Midnight Candy Club
 
-- [Ghostkeeper Maze 3D](https://github.com/AshinTop/halloween-haunted-maze) — explore first-person corridors and rescue three little lantern spirits.
-- [Pumpkin 2048](https://github.com/AshinTop/halloween-2048) — merge candlelit numbers and solve limited-move Lantern Trials.
-- [Witch’s Potion Match](https://github.com/AshinTop/halloween-potion-match) — brew Halloween potions through match-three puzzles.
-- [Moonlit Mirrors](https://github.com/AshinTop/halloween-mirror-hearts) — guide a pair of ghosts through mirrored movement puzzles.
+- [Ghostkeeper Maze 3D](https://halloween-haunted-maze.crazy3d.org/) · [Source](https://github.com/AshinTop/halloween-haunted-maze) — explore first-person corridors and rescue three little lantern spirits.
+- [Pumpkin 2048](https://halloween-2048.crazy3d.org/) · [Source](https://github.com/AshinTop/halloween-2048) — merge candlelit numbers and solve limited-move Lantern Trials.
+- [Witch’s Potion Match](https://halloween-potion-match.crazy3d.org/) · [Source](https://github.com/AshinTop/halloween-potion-match) — brew Halloween potions through match-three puzzles.
+- [Moonlit Mirrors](https://halloween-mirror-hearts.crazy3d.org/) · [Source](https://github.com/AshinTop/halloween-mirror-hearts) — guide a pair of ghosts through mirrored movement puzzles.
 
 If you enjoyed lighting the garden, **[star this repository](https://github.com/AshinTop/halloween-3d)** to support the project and find it again. Useful bug reports include the level or shared link, rendering mode, browser, and device.

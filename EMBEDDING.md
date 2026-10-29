@@ -1,10 +1,10 @@
 # Embedding Ghost Lanterns 3D
 
-Serve the directory over HTTPS with `index.html` as the entry point. This is a buildless static game with local ES modules, authored geometry and synthesized sound. It makes no external API or asset requests.
+Serve the directory over HTTPS with `index.html` as the entry point. This is a buildless static game with local ES modules, authored geometry and synthesized sound. The game code makes no external API or asset requests.
 
 ```html
 <iframe
-  src="/halloween/ghost-lanterns/index.html?embed=1"
+  src="https://halloween-3d.crazy3d.org/?embed=1"
   title="Ghost Lanterns 3D — Halloween puzzle"
   allow="clipboard-write"
   style="display:block;width:100%;aspect-ratio:16/9;min-height:300px;border:0"
