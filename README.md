@@ -1,135 +1,114 @@
-# Halloween 3D Puzzle Game — Ghost Lanterns 3D
+[English](README.md) · [简体中文](README.zh-CN.md) · [Español](README.es.md) · [Português (Brasil)](README.pt-BR.md) · [日本語](README.ja.md)
 
-**One little tap changes the night. Light every pumpkin and guide the ghosts home.**
+# Ghost Lanterns 3D — Halloween Lights Out Puzzle Game
 
-Ghost Lanterns 3D is a Halloween logic puzzle built around the classic Lights Out rule. Tap a pumpkin lantern to flip it and its orthogonal neighbors, then find a sequence that lights the entire garden. Twelve handcrafted starting puzzles introduce 3 × 3 and 4 × 4 boards, while paired “soul lanterns” add a small strategic surprise.
+🎃 One touch can brighten a whole corner of the night. Ghost Lanterns 3D turns classic Lights Out into a small pumpkin garden: flip the lanterns, follow violet soul links, and welcome the ghosts home. Twelve authored puzzles and a daily garden invite a quiet moment of experimentation.
 
-Part of **Midnight Candy Club**, created for the Halloween collection at [crazy3d.org](https://crazy3d.org).
+**[Play online](https://halloween-3d.crazy3d.org/)** · [Explore all 12 Halloween games](https://github.com/AshinTop/halloween-games) · [⭐ Star this repository](https://github.com/AshinTop/halloween-3d)
 
-**[Play online](https://halloween-3d.crazy3d.org/)** · **[Watch the visual introduction](docs/media/intro.mp4)** · **[Embedding guide](EMBEDDING.md)**
+README translations cover five languages. The **game interface currently supports English and Simplified Chinese only**.
 
-**Live deployment:** Play on Cloudflare using the link above. The site is deployed from this GitHub repository. Hosting scripts and request logging may be added by Cloudflare independently of the game code.
+![Ghost Lanterns 3D Halloween pumpkin garden with light counters, soul-linked lanterns, and puzzle controls](docs/images/gameplay.jpg)
 
-[Video player and transcript](https://halloween-3d.crazy3d.org/intro.html) · [Captioned MP4 file](docs/media/intro.mp4). The 24-second silent introduction uses actual game screenshots; it is not a live gameplay recording.
+## What makes it special
 
-![Ghost Lanterns 3D Halloween logic puzzle with a low-poly pumpkin garden, progress counters, and level controls](docs/images/gameplay.jpg)
-
-## What makes this pumpkin puzzle different?
-
-- **12 progressive campaign puzzles** with 3 × 3 and 4 × 4 gardens.
-- **Classic Lights Out logic** with a clear goal: turn every lantern on.
-- **Soul lantern pairs** from the fifth level onward. Directly tapping a marked lantern also flips its distant partner once.
-- **A real three-dimensional garden**, built from original pumpkin geometry, a raised garden base, lighting, and a rotating orthographic camera.
-- **Automatic Canvas software 3D fallback** when WebGL is unavailable, plus a complete optional flat 2D board.
-- **Unlimited undo, restart and an exact solver-backed hint** from the current board state.
-- **Shortest-solution references**, local best move counts, and records of whether hints were used.
-- **A daily puzzle keyed to the UTC date**, and links that share the starting puzzle exactly.
-- **English and Simplified Chinese**, touch, mouse and keyboard support, optional synthesized chimes, and reduced-motion support.
-- **No external 3D library, downloaded models, runtime CDN, account, or server.**
+- Twelve campaign gardens on 3×3 and 4×4 boards; the goal is to light every lantern.
+- Soul-linked pairs introduced in level 5 add one extra connection to selected moves.
+- A geometric 3D scene with lighting and camera rotation, plus automatic software 3D and an optional flat board.
+- Unlimited undo, restart, and exact minimum-click hints from the current state.
+- UTC daily puzzles, starting-board share links, local records, optional chimes, and reduced-motion support.
 
 ## How to play
 
-1. Tap a pumpkin lantern. Its own state and the states of its up, down, left and right neighbors flip.
-2. Keep going until every lantern is lit.
-3. From level 5, watch for violet soul-pair markings. Directly clicking either partner flips the other partner too.
-4. Use Undo to explore another route, or ask for a Hint when you need a nudge.
-5. Try a shorter solution, the next garden, or today's moonlight puzzle.
+Click a lantern to flip it and its neighbors **above, below, left, and right**. A lit lantern goes dark; a dark one lights up. Corners and edges affect fewer ordinary neighbors. Finish when the entire garden is lit. There is no timer or move limit.
 
-### The soul-pair rule
+From level 5, violet markings identify soul pairs. **Directly clicking** either partner flips the other once as well. A neighbor that changes does not pass this effect onward. If the partner is already an ordinary affected neighbor, it still flips only once.
 
-A soul link reacts only when one of its members is the lantern you directly click. It does not trigger recursively from a neighboring lantern's change. If the partner is already one of the ordinary affected neighbors, it still flips only once. This makes every move reversible and keeps the rule predictable.
+Use Undo to retrace a move or Hint for a minimum-click solution’s next action from your current board. The displayed shortest-route reference describes the starting puzzle. Campaign gardens are solvable, and daily gardens are made by applying legal moves to a solved board.
 
-### Controls
+## Controls
 
 | Action | Input |
 | --- | --- |
-| Flip a lantern | Click, tap, or activate the focused lantern button |
-| Move focus between lanterns | Arrow keys while the garden is focused |
-| Undo | **U** or Undo button |
-| Restart | **R** or Restart button |
-| Request a hint | **H** or Hint button |
-| Rotate the garden | Left / right camera buttons when shown |
-| Flat 2D view | View toggle in the player |
-| Select a level, daily puzzle, or share | The corresponding player buttons |
+| Flip a lantern | Click / tap, or **Enter / Space** on its focused button |
+| Choose a lantern | Arrow keys while the garden is focused |
+| Undo / restart / hint | **U / R / H**, or the matching buttons |
+| Rotate the garden | Left and right camera buttons when displayed |
+| Switch to a flat board | View toggle |
+| Choose a garden, daily puzzle, or share | The corresponding player buttons |
 
-## Three ways to see the same puzzle
+## A little strategy
 
-| Rendering mode | What it does |
-| --- | --- |
-| Native WebGL | Renders the original low-poly geometry with normal-based lighting and an orthographic camera |
-| Canvas software 3D | Projects the same world coordinates and camera, lights the geometry, and depth-sorts triangle faces using Canvas 2D |
-| Flat 2D | Presents the full playable board as large ordinary buttons |
+Watch the whole cross of a move rather than only the lantern you want to light. Turning one light off can prepare the final step. Clicking the same lantern twice restores the board, so repeated clicks are usually a signal to rethink the route. The soul rule follows your direct click, not every light that changes.
 
-The game chooses software 3D automatically if a WebGL context cannot be created. The software path is a geometric 3D projection, not a static image. The flat mode remains available as an explicit user choice.
+## Progress and challenge links
 
-The project’s browser review verified the software 3D and flat paths in an environment without WebGL. It does **not** claim a measured GPU frame rate or verified WebGL appearance on a physical device. Actual performance depends on the browser and hardware.
+Campaign progress, the current campaign session, preferences, best move counts, and hint-use records stay in the browser. There is no account or online leaderboard. The daily puzzle uses the **UTC date**, which can differ from your local date.
 
-## Puzzles, hints, and local progress
+A [shared soul-pair garden](https://halloween-3d.crazy3d.org/#p=v1.3.26.0-8) contains its starting board, dimensions, and links. Sharing does not transmit your current moves or a replay. A friend receives the same puzzle to solve independently.
 
-The solver models the puzzle over GF(2), performs elimination, and examines the remaining solution space to choose a minimum-length set of clicks. The Hint button uses the current board, so it remains useful after exploring or undoing moves.
+## Screenshots and video
 
-Campaign progress, the current campaign puzzle session, preferences, and best move records are stored in the current browser. There is no account or leaderboard. A shared link contains the **starting board and soul-pair configuration**, rather than a recording of your moves; it opens the same challenge for another player.
+![Ghost Lanterns 3D in a compact iframe with the garden and Undo and Hint controls](docs/images/mobile.jpg)
 
-Daily puzzles use the UTC date. Their generation starts from a solved board and applies valid moves, so the generated starting state has a solution.
+Actual game screenshot from a compact browser iframe; this demonstrates the small-window layout, not a physical-phone test.
 
-## Run locally and test
+[Video player and transcript](https://halloween-3d.crazy3d.org/intro.html) · [Download the MP4](docs/media/intro.mp4)
+
+The **24-second silent introduction** combines actual screenshots and captions. It is a visual tour, not continuous gameplay footage or an audio demonstration.
+
+## Frequently asked questions
+
+### Can I play without WebGL?
+
+Yes. When a WebGL context is unavailable, Canvas projects the actual 3D geometry using the same camera. A fully playable flat 2D board is also available. Renderer failure can fall back to the flat board.
+
+### Does the hint follow a fixed walkthrough?
+
+No. It solves the current board and finds a minimum-click route, including after your own experiments or undo actions.
+
+### Has the WebGL appearance been verified?
+
+Browser review exercised software 3D and flat views in an environment without WebGL. It does not establish physical-device WebGL appearance or a GPU frame-rate result.
+
+## Run locally and embed
+
+Serve the repository root over HTTP:
 
 ```sh
 python3 -m http.server 4173
 ```
 
-Open `http://localhost:4173/`. The game uses ES modules, so serve it through HTTP. No dependency installation or build step is needed.
+Open **http://localhost:4173/**. No build or dependencies are needed. Use HTTP: `file://` can block JavaScript modules.
+
+Run the included Node checks:
 
 ```sh
 npm test
 ```
 
-The **9 focused tests** cover classic adjacency, non-recursive soul links, reversible moves, complete solutions for every campaign puzzle, an independent minimum-click enumeration for 3 × 3 boards, invalid share parameters, and complete solutions for 365 daily puzzles. Projection tests cover camera rotation, resizing, narrow-frame bounds, and depth ordering.
-
-## Compact-player walkthrough
-
-![Ghost Lanterns 3D in a compact host iframe, showing the pumpkin garden and puzzle controls](docs/images/mobile.jpg)
-
-Tap a lantern to flip it and its neighbors, then watch the lit count. Undo and Hint remain available in the compact player. The optional flat board provides another view of exactly the same puzzle.
-
-*Actual interface captured in a browser iframe sized for the host player. This is a compact-window illustration, not a physical-phone test.*
-
-## Embedding
-
-The player adapts to its actual iframe size, including **960 × 540**, **390 × 460**, **390 × 300**, and **844 × 340** CSS pixels. The main site's navigation or fullscreen toolbar should sit outside the iframe. `?embed=1` can request the compact presentation explicitly; iframe detection also enables it automatically. See [EMBEDDING.md](EMBEDDING.md).
+Tests cover adjacency, non-recursive soul links, reversible moves, every campaign solution, minimum-click results for 3×3 puzzles, invalid links, and 365 daily solutions. Projection checks cover rotation, resizing, narrow frames, and depth ordering.
 
 ```html
 <iframe src="https://halloween-3d.crazy3d.org/?embed=1"
-  title="Ghost Lanterns 3D" width="960" height="540"
-  allow="fullscreen" allowfullscreen
-  style="display:block;width:100%;border:0"></iframe>
+  title="Ghost Lanterns 3D"
+  style="display:block;width:100%;height:540px;border:0"
+  allow="fullscreen" allowfullscreen></iframe>
 ```
 
-Modern Canvas and ES-module support are required. WebGL is optional because the software and flat views are available. Sounds are synthesized only after a user interaction and can be switched off.
+Reviewed browser sizes include **960×540**, **390×460**, **390×300**, and **844×340**. The iframe’s own dimensions control the layout; `?embed=1` requests the compact presentation. Canvas and JavaScript modules are required, while WebGL is optional. Sound starts only after interaction and can be disabled.
 
-## Frequently asked questions
+See [EMBEDDING.md](EMBEDDING.md) for sizing, storage, input focus, and permissions. Measure available iframe height after the host toolbar.
 
-**Is every campaign garden solvable?**  
-Yes. The game stores valid starting puzzles and tests their complete solver-generated winning sequences.
+## More little Halloween adventures
 
-**Do soul links create a chain reaction?**  
-No. Only directly clicking a paired lantern activates its partner, and each affected lantern flips once.
+- **[Ghostkeeper Maze 3D](https://halloween-haunted-maze.crazy3d.org/)** · [Source](https://github.com/AshinTop/halloween-haunted-maze) — Explore first-person corridors and rescue three lantern spirits.
+- **[Pumpkin 2048](https://halloween-2048.crazy3d.org/)** · [Source](https://github.com/AshinTop/halloween-2048) — Merge numbered pumpkins and solve positional Lantern Trials.
+- **[Witch’s Potion Match](https://halloween-potion-match.crazy3d.org/)** · [Source](https://github.com/AshinTop/halloween-potion-match) — Swap ingredients, trigger cascades, and light recipe candles.
+- **[Moonlit Mirrors](https://halloween-mirror-hearts.crazy3d.org/)** · [Source](https://github.com/AshinTop/halloween-mirror-hearts) — Guide two ghosts together through reflected puzzle boards.
 
-**Can I play without WebGL?**  
-Yes. The automatic Canvas software renderer and optional flat board both work without a WebGL context.
+## Credits and support
 
-**Does the hint always suggest the next move from the original solution?**  
-No. It solves your current board state, including changes made during experimentation.
+Created for **AshinTop** and **Midnight Candy Club** with human-directed, AI-assisted design, programming, and review. Artwork and synthesized sounds are original to this project. The game needs no remote account; hosting may independently add scripts or request logs.
 
-## Creation credits
-
-Created for Ashin's Midnight Candy Club with AI-assisted puzzle design, programming, documentation, testing, and review. The pumpkin geometry, garden artwork, rendering paths, and synthesized chimes were developed in code for this project. Actual-interface screenshots and the captioned visual introduction accompany the source; they do not establish an unmeasured GPU performance claim.
-
-## More from Midnight Candy Club
-
-- [Ghostkeeper Maze 3D](https://halloween-haunted-maze.crazy3d.org/) · [Source](https://github.com/AshinTop/halloween-haunted-maze) — explore first-person corridors and rescue three little lantern spirits.
-- [Pumpkin 2048](https://halloween-2048.crazy3d.org/) · [Source](https://github.com/AshinTop/halloween-2048) — merge candlelit numbers and solve limited-move Lantern Trials.
-- [Witch’s Potion Match](https://halloween-potion-match.crazy3d.org/) · [Source](https://github.com/AshinTop/halloween-potion-match) — brew Halloween potions through match-three puzzles.
-- [Moonlit Mirrors](https://halloween-mirror-hearts.crazy3d.org/) · [Source](https://github.com/AshinTop/halloween-mirror-hearts) — guide a pair of ghosts through mirrored movement puzzles.
-
-If you enjoyed lighting the garden, **[star this repository](https://github.com/AshinTop/halloween-3d)** to support the project and find it again. Useful bug reports include the level or shared link, rendering mode, browser, and device.
+Enjoyed playing? **[Leave a GitHub Star](https://github.com/AshinTop/halloween-3d)**. For bug reports, include browser, iframe size, challenge link, and reproduction steps.
